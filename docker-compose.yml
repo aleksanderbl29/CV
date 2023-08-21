@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nginx:
+    image: aleksanderbl/cv-nginx
+    ports:
+      - 80:80
+  watchtower:
+    image: containrrr/watchtower:1.5.3
+    container_name: watchtower-oci
+    hostname: oci-watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=Europe/Copenhagen
+      - WATCHTOWER_POLL_INTERVAL=15
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      com.centurylinklabs.watchtower.monitor-only: true
