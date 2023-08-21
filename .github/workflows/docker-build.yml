@@ -37,9 +37,9 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
-        context: "{{defaultContext}}:cv-nginx/"
+        context: "{{defaultContext}}:cv_nginx/"
         push: true
-        tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.day }}
+        tags: aleksanderbl/cv_nginx:latest,aleksanderbl/cv_nginx:${{ steps.day.outputs.day }}
 
     - name: Create release
       uses: softprops/action-gh-release@v1
