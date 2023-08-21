@@ -1,5 +1,4 @@
 FROM nginx:alpine
-MAINTAINER Aleksander Bang-Larsen <aleksanderbl@live.dk>
 
 COPY src/html /usr/share/nginx/html
 

@@ -6,7 +6,8 @@ body, h1, h2, p {
 
 /* Global styles */
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
+  line-height: normal;
 }
 
 header {
