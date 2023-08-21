@@ -40,7 +40,7 @@ jobs:
 
     - name: Get formatted date
       id: format_date
-      run: echo date_format=$(date +'%a %d. %b %y') >> $GITHUB_OUTPUT
+      run: echo date_format=$(date +'%d. %b %y') >> $GITHUB_OUTPUT
 
     - name: Build and push
       uses: docker/build-push-action@v4
