@@ -30,15 +30,16 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-    - name: Get today's date
-      run: echo "::set-output name=day::$(date +'%Y%m%d')"
+    - name: Get date
+      id: day
+      run: echo date=$(date +'%Y%m%d') >> $GITHUB_OUTPUT
 
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: aleksanderbl:cv:${{ steps.day.outputs.day }}
+        tags: latest,${{ steps.day.outputs.date }}
 
         # aleksanderbl\cv:latest
     # - name: Build and push
@@ -54,9 +55,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.day.outputs.day }}
-        name: "CV - ${{ steps.day.outputs.day }}"
+        tag_name: ${{ steps.day.outputs.date }}
+        name: "CV - ${{ steps.day.outputs.date }}"
         body: |
           # Aleksander Bang-Larsens CV
-          Opdateret pr. ${{ steps.day.outputs.day }}
-
+          Opdateret pr. ${{ steps.day.outputs.date }}
