@@ -33,6 +33,10 @@ jobs:
       id: day
       run: echo date=$(date +'%d%m%y') >> $GITHUB_OUTPUT
 
+    - name: Get formatted date
+      id: format_date
+      run: echo date_format=$(date +'%dd-%mmm-%Y') >> $GITHUB_OUTPUT
+
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
@@ -55,7 +59,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.day.outputs.date }}
-        name: "CV - ${{ steps.day.outputs.date }}"
+        name: "CV - ${{ steps.day.outputs.date_format }}"
         body: |
           # Aleksander Bang-Larsens CV
-          Opdateret pr. ${{ steps.day.outputs.date }}
+          Opdateret pr. ${{ steps.day.outputs.date_format }}
