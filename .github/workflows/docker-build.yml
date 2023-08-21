@@ -35,7 +35,7 @@ jobs:
 
     - name: Get formatted date
       id: format_date
-      run: echo date_format=$(date +'%dd-%mmm-%Y') >> $GITHUB_OUTPUT
+      run: echo date_format=$(date +'%d-%MM-%Y') >> $GITHUB_OUTPUT
 
     - name: Build and push
       uses: docker/build-push-action@v4
