@@ -59,7 +59,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.day.outputs.date }}
-        name: "CV - ${{ steps.day.outputs.format_date }}"
+        name: "CV - ${{ steps.format_date.outputs.date_format }}"
         body: |
           # Aleksander Bang-Larsens CV
-          Opdateret pr. ${{ steps.day.outputs.format_date }}
+          Opdateret pr. ${{ steps.format_date.outputs.date_format }}
