@@ -7,8 +7,8 @@ services:
       - 80:80
   watchtower:
     image: containrrr/watchtower:1.5.3
-    container_name: watchtower-oci
-    hostname: oci-watchtower
+    container_name: watchtower
+    hostname: watchtowre
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
@@ -17,5 +17,3 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-    labels:
-      com.centurylinklabs.watchtower.monitor-only: true
