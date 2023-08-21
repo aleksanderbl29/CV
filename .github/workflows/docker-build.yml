@@ -17,6 +17,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: Set up timezone
+      uses: szenius/set-timezone@v1.2
+      with:
+        timezoneLinux: "Europe/Copenhagen"
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
@@ -43,15 +48,6 @@ jobs:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
         tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
-
-        # aleksanderbl\cv:latest
-    # - name: Build and push
-    #   uses: docker/build-push-action@v4
-    #   with:
-    #     platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
-    #     context: "{{defaultContext}}:cv_nginx/"
-    #     push: true
-    #     tags: aleksanderbl/cv_nginx:latest,aleksanderbl/cv_nginx:${{ steps.day.outputs.day }}
 
     - name: Create release
       uses: softprops/action-gh-release@v1
