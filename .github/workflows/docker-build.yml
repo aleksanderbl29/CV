@@ -38,9 +38,9 @@ jobs:
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: aleksanderbl\cv:latest
-        # ,aleksanderbl\cv:${{ steps.day.outputs.day }}
+        tags: aleksanderbl\cv:${{ steps.day.outputs.day }}
 
+        # aleksanderbl\cv:latest
     # - name: Build and push
     #   uses: docker/build-push-action@v4
     #   with:
