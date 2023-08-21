@@ -1,8 +1,7 @@
 ---
 name: Docker build and publish
 
-on:
-  # cron job to trigger the build on any push to main
+'on':
   push:
     branches:
       - 'main'
@@ -39,7 +38,7 @@ jobs:
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: latest,${{ steps.day.outputs.date }}
+        tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
 
         # aleksanderbl\cv:latest
     # - name: Build and push
