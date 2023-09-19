@@ -44,7 +44,7 @@ jobs:
 
     - name: Get formatted time
       id: format_time
-      run: echo time_format=$(date +'%H:%M') >> $GITHUB_OUTPUT
+      run: echo time_format=$(date +'%H-%M') >> $GITHUB_OUTPUT
 
     - name: Build and push
       uses: docker/build-push-action@v5
