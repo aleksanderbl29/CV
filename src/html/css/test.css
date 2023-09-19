@@ -1,0 +1,71 @@
+/* Set background color */
+body {
+  background-color: #f2f2f2;
+}
+
+/* Set font family and size */
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Set container width and margin */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Set header background color and padding */
+header {
+  background-color: #333;
+  padding: 20px;
+}
+
+/* Set header text color and align center */
+header h1 {
+  color: #fff;
+  text-align: center;
+}
+
+/* Set profile picture size and margin */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Set section background color and padding */
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}
+
+/* Set section title color and margin */
+section h2 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Set link color and hover effect */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Set footer background color and padding */
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
