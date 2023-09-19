@@ -87,4 +87,4 @@ jobs:
 
     - name: Create revision in Azure Container App
       run: |
-        az containerapp update -n CV-app -g CV --image docker.io/aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
+        az containerapp update -n cv-app -g CV --image docker.io/aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
