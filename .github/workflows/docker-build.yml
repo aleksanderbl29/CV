@@ -42,12 +42,16 @@ jobs:
       id: format_date
       run: echo date_format=$(date +'%d. %b %y') >> $GITHUB_OUTPUT
 
+    - name: Get formatted time
+      id: format_time
+      run: echo time_format=$(date +'%H:%M') >> $GITHUB_OUTPUT
+
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
+        tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.date }},aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}-${{ steps.format_time.outputs.time_format }}
 
     - name: Create release
       uses: softprops/action-gh-release@v1
@@ -58,27 +62,7 @@ jobs:
         name: "CV - ${{ steps.format_date.outputs.date_format }}"
         body: |
           # Aleksander Bang-Larsens CV
-          Opdateret pr. ${{ steps.format_date.outputs.date_format }}
-
-  azure:
-    needs: docker
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    - name: Set up timezone
-      uses: szenius/set-timezone@v1.2
-      with:
-        timezoneLinux: "Europe/Copenhagen"
-
-    - name: Get date
-      id: day
-      run: echo date=$(date +'%d%m%y') >> $GITHUB_OUTPUT
-
-    - name: Get formatted date
-      id: format_date
-      run: echo date_format=$(date +'%d. %b %y') >> $GITHUB_OUTPUT
+          Opdateret pr. ${{ steps.format_date.outputs.date_format }} kl. ${{ steps.format_time.outputs.time_format }}
 
     - name: Login to Azure
       uses: azure/login@v1
@@ -87,4 +71,4 @@ jobs:
 
     - name: Create revision in Azure Container App
       run: |
-        az containerapp update -n cv-app -g CV --image docker.io/aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}
+        az containerapp update -n cv-app -g CV --image docker.io/aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}-${{steps.format_time.outputs.time_format}}
