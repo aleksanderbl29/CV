@@ -1,5 +1,4 @@
 body, h1, h2, p {
-  background-color: #f2f2f2;
   margin: 0;
   padding: 0;
 }
@@ -10,43 +9,114 @@ body {
   line-height: normal;
 }
 
+main {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 850px;
+}
+
+h1 {
+  margin-bottom: 0.2rem;
+}
+
+p {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 header {
   background-color: #5e8747;
-  color: white;
+  color:#000;
   text-align: center;
   padding: 1rem;
   position: sticky
 }
 
-/* img {
+.portrait {
+  display: flex;
+  justify-content: right;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.kontakt {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+/*
+TIMELINE STYLES
+*/
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.timeline::after {
+  content: '';
   position: absolute;
-  right: 0px;
-  float: right;
-  border-radius: 16px;
-  border: 5px solid #a85959;
-  scale: 0.3;
-} */
+  width: 2px;
+  background-color: #000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
 
-/* img {
-  box-sizing: border-box;
-  float: right;
-  width: auto
-  height: auto;
-} */
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
 
-#portrait {
-  float: inline-end;
-  transform: scale(0.3);
-  border: #5e8747;
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height:20px;
+  background-color: #000;
   border-radius: 50%;
+  top: 0;
+  left: 50%;
+  margin-left: -10px;
 }
 
-img.inline.* {
-  display: inline;
-  float: inline-end;
-  transform: scale(0.3);
+.timeline-item.left .timeline-content {
+  left: 70%;
 }
 
-/* .right{
-  float: right;
-} */
+.timeline-item.right .timeline-content {
+  left: 20%;
+}
+
+.timeline-content {
+  position: relative;
+  left: 30px;
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-description {
+  margin-bottom: 10px;
+}
