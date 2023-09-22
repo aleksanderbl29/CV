@@ -1,0 +1,55 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+/* Global styles */
+body {
+  font-family: 'Inclusive Sans', sans-serif;
+  line-height: normal;
+  font-size: 16px;
+}
+
+header {
+  background-color: #5e8747;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 0.2rem;
+  color: hsl(26, 48%, 46%);
+}
+
+/* Set profile picture size and margin */
+.portrait {
+  /* width: 150px;
+  height: 150px; */
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  float: right;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Customize the rest of your styles here */
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
