@@ -46,6 +46,10 @@ jobs:
       id: format_time
       run: echo time_format=$(date +'%H-%M') >> $GITHUB_OUTPUT
 
+    - name: Get formatted hour
+      id: format_hour
+      run: echo hour=$(date +'%H') >> $GITHUB_OUTPUT
+
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
@@ -62,7 +66,7 @@ jobs:
         name: "CV - ${{ steps.format_date.outputs.date_format }}"
         body: |
           # Aleksander Bang-Larsens CV
-          Opdateret pr. ${{ steps.format_date.outputs.date_format }} kl. ${{ steps.format_time.outputs.time_format }}
+          Opdateret pr. ${{ steps.format_date.outputs.date_format }} kl. ${{ steps.format_hour.outputs.hour }}
 
     - name: Login to Azure
       uses: azure/login@v1
