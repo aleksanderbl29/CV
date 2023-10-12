@@ -3,6 +3,10 @@ body, h1, h2, p {
   padding: 0;
 }
 
+section {
+  margin-bottom: 20px;
+}
+
 body {
   font-family: 'Inclusive Sans', sans-serif;
   font-size: medium;
@@ -16,7 +20,12 @@ main {
 }
 
 h1 {
+  padding-top: 1rem;
   margin-bottom: 0.2rem;
+}
+
+h2 {
+  padding-top: 0.5rem;
 }
 
 p {
@@ -58,65 +67,4 @@ header {
 .center {
   display: flex;
   justify-content: center;
-}
-
-/*
-TIMELINE STYLES
-*/
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  background-color: #000;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -1px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height:20px;
-  background-color: #000;
-  border-radius: 50%;
-  top: 0;
-  left: 50%;
-  margin-left: -10px;
-}
-
-.timeline-item.left .timeline-content {
-  left: 70%;
-}
-
-.timeline-item.right .timeline-content {
-  left: 20%;
-}
-
-.timeline-content {
-  position: relative;
-  left: 30px;
-}
-
-.timeline-date {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.timeline-description {
-  margin-bottom: 10px;
 }
