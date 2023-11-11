@@ -1,4 +1,4 @@
-FROM nginx:alpine:latest
+FROM nginx:alpine
 
 COPY src/html /usr/share/nginx/html
 
