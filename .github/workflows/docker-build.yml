@@ -58,7 +58,7 @@ jobs:
         tags: aleksanderbl/cv-nginx:latest,aleksanderbl/cv-nginx:${{ steps.day.outputs.date }},aleksanderbl/cv-nginx:${{ steps.day.outputs.date }}-${{ steps.format_time.outputs.time_format }}
 
     - name: Create release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
