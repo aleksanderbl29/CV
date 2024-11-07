@@ -51,7 +51,7 @@ jobs:
       run: echo hour=$(date +'%H') >> $GITHUB_OUTPUT
 
     - name: Build and push
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
